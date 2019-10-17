@@ -40,6 +40,17 @@ $(function () {
     });
 
     // function to dee-leet burgers
-    
+    $(".delete-burger").on("click", function(event){
+        // grab which brgr to delete
+        var id = $(this).data("id");
 
-})
+        // send delete request via ajax
+        $.ajax("/api/burgers/", + id, {
+            type: "DELETE"
+        }).then(
+            function(){
+                location.reload();
+            }
+        );
+    });
+});
