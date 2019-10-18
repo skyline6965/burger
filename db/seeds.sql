@@ -1,4 +1,4 @@
-INSERT INTO burgers (burger_name, devoured)
+INSERT INTO burgers (name, eaten)
 VALUES 
 ("Big Kahuna Burger", false), 
 ("Whoper", false),

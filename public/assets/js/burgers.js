@@ -1,8 +1,8 @@
 $(function () {
     // function to change status of burger
-    $(".change-devoured").on("click", function (event) {
+    $(".change-eaten").on("click", function (event) {
         var id = $(this).data("id");
-        var newEaten = $(this).data("new-eaten");
+        var newEaten = $(this).data("neweaten");
 
         var newEatenStatus = {
             eaten: newEaten
@@ -14,6 +14,7 @@ $(function () {
             data: newEatenStatus
         }).then(
             function () {
+                console.log("changed eaten to", newEaten);
                 location.reload();
             }
         );
@@ -34,21 +35,23 @@ $(function () {
             data: newBurger
         }).then(
             function () {
+                console.log("created new burger called: " + newBurger);
                 location.reload()
             }
         );
     });
 
-    // function to dee-leet burgers
-    $(".delete-burger").on("click", function(event){
+    // function to dee-yeet burgers
+    $(".delete-burger").on("click", function (event) {
         // grab which brgr to delete
         var id = $(this).data("id");
 
         // send delete request via ajax
-        $.ajax("/api/burgers/", + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "DELETE"
-        }).then(
-            function(){
+        }).then(    
+            function () {
+                console.log("dee-yeeted burger " + id);
                 location.reload();
             }
         );
