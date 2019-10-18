@@ -1,7 +1,7 @@
 // Import MySQL connection.
 var connection = require("../config/connection.js");
 
-
+// print ?'s for mysql syntax
 function printQuestionMarks(num) {
   var arr = [];
 
